@@ -1,4 +1,4 @@
-/* ----------------- Start Document test update ----------------- */
+/* ----------------- Start Document ----------------- */
 (function($){
 "use strict";
 
@@ -709,13 +709,24 @@ $(".booking-services").on("click", '.qtyInc', function() {
 
       var oldValue = $button.parent().find("input").val();
       console.log(oldValue);
-      if(oldValue == 2) {
+      if(oldValue > 1) {
       	//$button.parents('.single-service').find('label').trigger('click');
       	$button.parents('.single-service').find('input.bookable-service-checkbox').prop("checked",true);
       	updateCounter();
       }
 });
 
+var myExtraServiceInput = document.querySelector("#form-booking > div:nth-child(4) > div > div > div > div.bookable-services > div > div > input");
+myExtraServiceInput.addEventListener("input", function () {
+	
+	var $button = $(this);
+
+      var oldValue = $button.parent().find("input").val();
+      	//$button.parents('.single-service').find('label').trigger('click');
+      	$button.parents('.single-service').find('input.bookable-service-checkbox').prop("checked",true);
+      	updateCounter();
+});
+	
 
 if ( $( "#booking-date-range" ).length ) {
 
