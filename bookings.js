@@ -709,13 +709,14 @@ $(".booking-services").on("click", '.qtyInc', function() {
 
       var oldValue = $button.parent().find("input").val();
       console.log(oldValue);
-      if(oldValue > 1) {
+      if(oldValue > 1) { //changed this to ensure the counter is updated regardless of which number is in the input
       	//$button.parents('.single-service').find('label').trigger('click');
       	$button.parents('.single-service').find('input.bookable-service-checkbox').prop("checked",true);
       	updateCounter();
       }
 });
 
+	//Here I've duplicated the function above (which updates the counter when the qty buttons are pushed) to listen for the number in the qty field to be updated
 var myExtraServiceInput = document.querySelector("#form-booking > div:nth-child(4) > div > div > div > div.bookable-services > div > div > input");
 myExtraServiceInput.addEventListener("input", function () {
 	
@@ -726,7 +727,7 @@ myExtraServiceInput.addEventListener("input", function () {
       	$button.parents('.single-service').find('input.bookable-service-checkbox').prop("checked",true);
       	updateCounter();
 });
-	
+//END OF MODIFICATIONS
 
 if ( $( "#booking-date-range" ).length ) {
 
