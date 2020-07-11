@@ -718,7 +718,8 @@ $(".booking-services").on("click", '.qtyInc', function() {
 
 	//Here I've duplicated the function above (which updates the counter when the qty buttons are pushed) to listen for the number in the qty field to be updated
 var myExtraServiceInput = document.querySelector("#form-booking > div:nth-child(4) > div > div > div > div.bookable-services > div > div > input");
-myExtraServiceInput.addEventListener("input", function () {
+if(myExtraServiceInput){
+	myExtraServiceInput.addEventListener("input", function () {
 	
 	var $button = $(this);
 
@@ -727,6 +728,7 @@ myExtraServiceInput.addEventListener("input", function () {
       	$button.parents('.single-service').find('input.bookable-service-checkbox').prop("checked",true);
       	updateCounter();
 });
+}
 //END OF MODIFICATIONS
 
 if ( $( "#booking-date-range" ).length ) {
